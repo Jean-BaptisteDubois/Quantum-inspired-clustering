@@ -1,23 +1,3 @@
-# Genetic Algorithm for k-means Clustering
-k-means clustering method selects randomly k patterns from the dataset D which is of size n, as initial cluster centers.
-These initial centers are also called seed-points. Let M(0) = {M(0) 1 ,M(0)2 , . . . ,M(0)k } be the set of initial seed points.
-Remaining (n-k) patterns are assigned to their nearest cluster centers.
-New centroid (mean) of each cluster is computed. Each pattern X є D is again assigned to the nearest hub and new centers are again found. This process is iterated until all centers (means) remain unchanged in two successive iterations.
-The time multifaceted nature of the k-means technique is O (nkt), where n is the quantity of examples in the dataset, k is the quantity of groups and t is the quantity of emphases till the convergence.
-
-Input:
-k: the digit of clusters,
-A: data set of n size.
-Output:
-An arrangement of k clusters.
-Routine: Selection of k items from A (initial cluster centroid)
-Repeat until no changeK-Means Clustering & Application of Genetic Algorithm in K-Means Clustering
-2.1 Each item is allocated to the closest cluster to its nearest. (Distance of each item is calculated from selected cluster centroid using sum of squared error)
-2.2 Recalculate new cluster centroids
-Display the final generated clusters.
-
-##Quantum-inspired genetic algorithm for k-means clustering implementation ##
-
 def read_df(filename, expected_bytes=None, force=False):
     """Download a file if not present, and make sure it's the right size."""
     dest_filename = os.path.join(data_root, filename)
@@ -84,8 +64,6 @@ def minmax(data):
     normData.to_csv('result/norm_data.csv', index=None, header=None)
     return normData
 
-minmax(pd.DataFrame(read_df(iris_addr)[:,:-1]))
-
 from __future__ import print_function
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
@@ -100,12 +78,6 @@ from six.moves.urllib.request import urlretrieve
 # from six.moves import cPickle as pickle
 
 %matplotlib inline
-
-X = np.array([[1, 2], [1, 4], [1, 0],
-               [4, 2], [4, 4], [4, 0]])
-kmeans = KMeans(n_clusters=6, random_state=0).fit(X)
-kmeans.cluster_centers_
-# kmeans.predict([[0, 0], [4, 4]])
 
 # Data loading params
 data_root = ''
@@ -143,29 +115,4 @@ pc = 0.9
 pm = 0.01
 pcc = (1 - pc) * random.random() + pc
 pmm = (2*pm - pm) * random.random() + pm
-
-class ToolBox :
-    @staticmethod
-    def translate(value, leftMin, leftMax, rightMin, rightMax):
-        """this function will map value from range(leftMin,leftMax)
-        to range(rightMin,rightMax)"""
-        # Figure out how 'wide' each range is
-        leftSpan = leftMax - leftMin
-        rightSpan = rightMax - rightMin
-
-        # Convert the left range into a 0-1 range (float)
-        valueScaled = float(value - leftMin) / float(leftSpan)
-        value = int(rightMin + (valueScaled * rightSpan))
-        if value == rightMax :
-            value = rightMax - 1
-        # Convert the 0-1 range into a value in the right range.
-        return value
-    
-    @staticmethod
-    def euclideanDistance(x,y):
-        "return euclidean distance between x and y"
-        e = 0
-        for i,j in zip(x,y):
-            e += (i - j)**2
-        return np.sqrt(e)
 
