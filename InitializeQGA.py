@@ -116,3 +116,27 @@ pm = 0.01
 pcc = (1 - pc) * random.random() + pc
 pmm = (2*pm - pm) * random.random() + pm
 
+class ToolBox :
+    @staticmethod
+    def translate(value, leftMin, leftMax, rightMin, rightMax):
+        """this function will map value from range(leftMin,leftMax)
+        to range(rightMin,rightMax)"""
+        # Figure out how 'wide' each range is
+        leftSpan = leftMax - leftMin
+        rightSpan = rightMax - rightMin
+
+        # Convert the left range into a 0-1 range (float)
+        valueScaled = float(value - leftMin) / float(leftSpan)
+        value = int(rightMin + (valueScaled * rightSpan))
+        if value == rightMax :
+            value = rightMax - 1
+        # Convert the 0-1 range into a value in the right range.
+        return value
+    
+    @staticmethod
+    def euclideanDistance(x,y):
+        "return euclidean distance between x and y"
+        e = 0
+        for i,j in zip(x,y):
+            e += (i - j)**2
+        return np.sqrt(e)
