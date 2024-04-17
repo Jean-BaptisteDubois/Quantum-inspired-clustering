@@ -1,2 +1,2 @@
 # Quantum-inspired-clustering
-This repository focuses on two main quantum-inspired clustering methods, namely the original quantum clustering introduced by Horn in 2001 and a quantum inspired genetic algorithm
+This repository focuses on two main quantum-inspired clustering methods ; namely the original "quantum clustering" introduced by Horn in 2001 and a quantum inspired genetic algorithm. This work was intended to be done in a scholar framework, so a detailed report has been written (containing exhaustive descriptions of the two methods and comparing the numerical results obtained), hence the sparse informations provided on this page. 
